@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import { Card,ListGroup,Button, Form } from 'react-bootstrap';
 
 export default function Form1(props) {
@@ -27,7 +27,7 @@ export default function Form1(props) {
 
         <>
             <h3>Add Item</h3>
-            <Card style={{ width: '18rem' }}>
+            <Card className='card' style={{ width: '18rem'}}>
 
                 <ListGroup variant="light">
                     <Form onSubmit={handleSubmit}>

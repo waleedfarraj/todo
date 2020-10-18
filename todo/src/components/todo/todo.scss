@@ -7,12 +7,14 @@ body, html {
 .todo-details {
     display:flex;
     flex-direction:column;
+    
 
     header {
         display:flex;
         flex-direction:row;
         justify-content:center;
         padding:.5em 1em;
+        text-align: center;
     }
 
     .item {
@@ -28,11 +30,15 @@ body, html {
     flex-direction:row;
     justify-content: space-evenly;
     margin: 2em;
-
+    text-align: center;
     form {
       
 
         display:flex;
+        text-align: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
         flex-direction:column;
         margin-right: 2em;
 
