@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import TodoForm from './form1.js';
-import TodoList from './list1.js';
+import TodoList from './list2.js';
 import {Alert} from 'react-bootstrap'
+
 import './todo.scss';
 
  function Todo1(props) {
@@ -14,20 +15,21 @@ import './todo.scss';
     const addItem = (item) => {
         item._id = Math.random();
         item.complete = false;
+        console.log('pppppppppp',list,'\n',item)
         setlist([...list, item] );
     };
 
     
     
     useEffect (() => {
-       
-            let list= [
-                { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A' },
-                { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A' },
-                { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B' },
-                { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C' },
-                { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B' },
-            ];
+              
+            // let list= [
+            //     { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A' },
+            //     { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A' },
+            //     { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B' },
+            //     { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C' },
+            //     { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B' },
+            // ];
            console.log('lissssssssssss',list)
             setlist(list)
             
