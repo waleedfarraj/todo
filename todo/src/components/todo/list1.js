@@ -1,21 +1,18 @@
-import React  from 'react'
-
-const List1 = (props) => {
-
-    return (
-        <ul>
-          {props.list.map(item => (
-            <li
-              className={`complete-${item.complete.toString()}`}
-              key={item._id}
-            >
-              <span onClick={() => props.handleComplete(item._id)}>
-                {item.text}
-              </span>
-            </li>
-          ))}
-        </ul>
-      );
+import React from 'react'
+import './todo.scss';
+import { ListGroup } from 'react-bootstrap';
+const ToDoList = (props) => {
+  return (
+    <ListGroup className="ListGroup" variant="flush">
+      {props.list.map(item => (
+        <ListGroup.Item className={`listGroupItem complete-${item.complete.toString()}`}
+          key={item._id} >
+          <span onClick={() => props.handleComplete(item._id)}>
+            {item.text}
+          </span>
+        </ListGroup.Item>
+      ))}
+    </ListGroup>
+  );
 }
-
-export default List1
+export default ToDoList;

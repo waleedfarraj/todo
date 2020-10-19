@@ -49,12 +49,12 @@ body, html {
         }
     }
 
-    ul {
+    .ListGroup {
         list-style-type:none;
         margin:0;
         padding:0;
 
-        li {
+        .listGroupItem {
 
             align-items: center;
             display:flex;
@@ -94,8 +94,10 @@ body, html {
                 padding:0;
                 margin: 0 .75em;
             }
+            
 
         }
     }
 
 }
+
