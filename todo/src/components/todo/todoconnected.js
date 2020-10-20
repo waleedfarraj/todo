@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import TodoForm from './form2.js';
 import TodoList from './list2.js';
+import SettingProvider from '../../context/numContext';
+import Filter from './filterPar';
+import Lis from './list-pagination'
 
 import './todo.scss';
 
 const todoAPI = 'http://localhost:3000/api/v1/todo';
 
 
-const ToDo = () => {
+const ToDo =  () => {
   
   const [list, setList] = useState([]);
   useEffect(() => {
@@ -86,19 +89,22 @@ const ToDo = () => {
       mode: 'cors',
     })
       .then(data => data.json())
-      .then((data)=> { console.log(data.data)
+      .then((data)=> { console.log('hello',data.data)
       setList(data.data)})
       .catch(console.error);
   };
 
-  useEffect(_getTodoItems, []);
-  useEffect(_deleteTask);
+   useEffect(_getTodoItems, []);
+   
+ 
 
 
 
   return (
     <>
-      <header>
+     
+        <SettingProvider>
+        <header>
         <h2>
           There are {list.filter(item => !item.complete).length} Items To Complete
         </h2>
@@ -109,15 +115,18 @@ const ToDo = () => {
         <div>
           <TodoForm handleSubmit={_addItem} />
         </div>
+        <Lis list={list}
+        handleComplete={_toggleComplete}
+        deleteTask={_deleteTask}/>
 
-        <div>
-          <TodoList
-            list={list}
-            handleComplete={_toggleComplete}
-            deleteTask={_deleteTask}
-          />
-        </div>
-      </section>
+      
+        </section>
+     <div>
+       {console.log('reeeeeeeeeeee',list)}
+     
+        <Filter />
+     </div>
+     </SettingProvider>
     </>
   );
 };
