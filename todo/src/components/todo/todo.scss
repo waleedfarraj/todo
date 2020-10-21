@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 body, html {
     height: 100%;
     margin: 0;
@@ -7,14 +9,12 @@ body, html {
 .todo-details {
     display:flex;
     flex-direction:column;
-    
 
     header {
         display:flex;
         flex-direction:row;
-        justify-content:center;
+        justify-content:space-between;
         padding:.5em 1em;
-        text-align: center;
     }
 
     .item {
@@ -28,17 +28,13 @@ body, html {
 
     display:flex;
     flex-direction:row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     margin: 2em;
-    text-align: center;
+ 
+
     form {
-      
 
         display:flex;
-        text-align: center;
-        justify-items: center;
-        align-items: center;
-        align-content: center;
         flex-direction:column;
         margin-right: 2em;
 
@@ -49,12 +45,12 @@ body, html {
         }
     }
 
-    .ListGroup {
+    .list-group {
         list-style-type:none;
         margin:0;
         padding:0;
 
-        .listGroupItem {
+        .list-group-item {
 
             align-items: center;
             display:flex;
@@ -64,13 +60,25 @@ body, html {
 
             &.complete-true {
               span {
-                background: pink;
+                background: antiquewhite;
                 text-decoration:line-through;
                 &:hover {
-                   background: seagreen;
+                   background: rgb(55, 99, 74);
                 }
               }
             }
+
+            &.complete-false {
+                span {
+                  background: darkgoldenrod;
+                  color: antiquewhite;
+                  font-weight: bold;
+                  &:hover {
+                     background: rgb(91, 160, 121);
+                  }
+                }
+              }
+  
 
             span {
                 background: #e0e0e0;
@@ -94,10 +102,8 @@ body, html {
                 padding:0;
                 margin: 0 .75em;
             }
-            
 
         }
     }
 
 }
-

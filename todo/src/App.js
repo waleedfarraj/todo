@@ -1,16 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-import ToDo from './components/todo/todoconnected';
-import Header from "./components/todo/Header";
-import{SettingContext} from './context/numContext'
+import ToDo from './components/todo/todo.js';
+import Header from './components/header.js';
 
-export default function App() {
+
+function App() {
+
     return (
       <>
-      <Header/>
+        <Header />
         <ToDo />
-      
       </>
     );
   
 }
+
+export default App;
