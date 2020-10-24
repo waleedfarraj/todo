@@ -1,46 +1,38 @@
-import React, { useState } from 'react';
-import Card from 'react-bootstrap/Card'
+import React from 'react';
+import useForm from '../../hooks/useForm';
 
-function TodoForm(props) {
+import { Button, Form, Col } from "react-bootstrap"
 
-  const [item, setItem] = useState({});
+export default (props) => {
 
-  const handleInputChange = e => {
-    setItem({...item, [e.target.name]: e.target.value});
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    e.target.reset();
-    props.handleSubmit(item);
-    setItem({});
-  };
+const [handleInputChange, handleSubmit] = useForm(props.handleSubmit);
 
     return (
-      <Card>
-        <h3>Add Item</h3>
-        <form onSubmit={handleSubmit}>
-          <label>
-            <span>To Do Item</span>
-            <input
-              name="text"
-              placeholder="Add To Do List Item"
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            <span>Difficulty Rating</span>
-            <input defaultValue="1" type="range" min="1" max="5" name="difficulty" onChange={handleInputChange} />
-          </label>
-          <label>
-            <span>Assigned To</span>
-            <input type="text" name="assignee" placeholder="Assigned To" onChange={handleInputChange} />
-          </label>
-          <button>Add Item</button>
-        </form>
-      </Card>
+      <>
+      <h2>Add Item:</h2>
+      <Form data-testid="form" onSubmit={handleSubmit}>
+        <Form.Row>
+          <Form.Group as={Col}>
+            <Form.Label>To Do Item</Form.Label>
+            <Form.Control type="text" name="text" onChange={handleInputChange} placeholder="Add To Do List Item" />
+          </Form.Group>
+        </Form.Row>
+
+        <Form.Row>
+          <Form.Group as={Col}>
+            <Form.Label>Assigned To</Form.Label>
+            <Form.Control type="text" name="assignee" placeholder="Assigned To" onChange={handleInputChange} />
+          </Form.Group>
+        </Form.Row>
+
+        <Form.Row>
+          <Form.Group as={Col}>
+            <Form.Label>Difficulty Rating</Form.Label>
+            <Form.Control defaultValue="2" type="range" min="1" max="5" name="difficulty" varient="primary" onChange={handleInputChange}  />
+          </Form.Group>
+        </Form.Row>
+          <Button varient="primary" type="submit">Add Item</Button>
+        </Form>
+      </>
     );
   }
-
-
-export default TodoForm;

@@ -1,27 +1,32 @@
 import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup'
 
-import './todo.scss';
+class TodoList extends React.Component {
 
+  render() {
 
-  function TodoList(props) {
     return (
-      <ListGroup>
-        {props.list.map(item => (
-          <ListGroup.Item
-            className={`complete-${item.complete.toString()}`}
+      <ul>
+        {this.props.list.map(item => (
+          <li
             key={item._id}
           >
-            <span onClick={() => props.handleComplete(item._id)}>
-              {item.text}
-              <br></br>
-              {item.assignee}
+            <span style={{float: "left", display: "inline"}} onClick={() => this.props.handleComplete(item._id)}>
+              <b>text</b> {item.text} &nbsp;
+              <b>difficulty</b> {item.difficulty} &nbsp;
+              <b>complete</b> &nbsp;
+              <b style={{"backgroundColor": item.complete ? "red": "green", "color": "white"}}>{item.complete ? "completed": "pending"}</b>
+              <br/>
+              <br/>
+              <b>assignee</b> {item.assignee}
             </span>
-          </ListGroup.Item>
+          <button onClick={() => this.props.deleteItem(item._id)}>
+          del
+          </button>
+          </li>
         ))}
-      </ListGroup>
+      </ul>
     );
   }
-
+}
 
 export default TodoList;
